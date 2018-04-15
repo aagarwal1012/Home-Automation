@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 socket = device.createInsecureRfcommSocketToServiceRecord(MY_UUID);
             } catch (IOException e) {
-                nameView.setText("Connected to " + "\"" + "NA" + "\"");
+                //nameView.setText("Connected to " + "\"" + "NA" + "\"");
                 //Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
             }
             mBluetoothAdapter.cancelDiscovery();
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     socket.connect();
                 } catch (IOException e) {
-                    nameView.setText("Connected to " + "\"" + "NA" + "\"");
+                    //nameView.setText("Connected to " + "\"" + "NA" + "\"");
                     //Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                     Log.e(TAG, "socket connect failed: " + e.getMessage() + "\n");
                     try {
