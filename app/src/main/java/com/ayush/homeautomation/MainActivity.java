@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ayush.homeautomation.Utils.AwesomeToggle;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.UUID;
@@ -56,35 +58,50 @@ public class MainActivity extends AppCompatActivity {
         device1.setOnCheckedChangeListner(new AwesomeToggle.OnCheckedChangeListner() {
             @Override
             public void onChecked(boolean isChecked) {
-                sendSignal(1);
+                if (isChecked)
+                    sendSignal(1);
+                else
+                    sendSignal(5);
             }
         });
 
         device2.setOnCheckedChangeListner(new AwesomeToggle.OnCheckedChangeListner() {
             @Override
             public void onChecked(boolean isChecked) {
-                sendSignal(2);
+                if (isChecked)
+                    sendSignal(2);
+                else
+                    sendSignal(6);
             }
         });
 
         device3.setOnCheckedChangeListner(new AwesomeToggle.OnCheckedChangeListner() {
             @Override
             public void onChecked(boolean isChecked) {
-                sendSignal(3);
+                if (isChecked)
+                    sendSignal(3);
+                else
+                    sendSignal(7);
             }
         });
 
         device4.setOnCheckedChangeListner(new AwesomeToggle.OnCheckedChangeListner() {
             @Override
             public void onChecked(boolean isChecked) {
-                sendSignal(4);
+                if (isChecked)
+                    sendSignal(4);
+                else
+                    sendSignal(8);
             }
         });
 
         device_all.setOnCheckedChangeListner(new AwesomeToggle.OnCheckedChangeListner() {
             @Override
             public void onChecked(boolean isChecked) {
-                sendSignal(0);
+                if (isChecked)
+                    sendSignal(0);
+                else
+                    sendSignal(10);
             }
         });
     }

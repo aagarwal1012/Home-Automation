@@ -1,4 +1,4 @@
-package com.ayush.homeautomation;
+package com.ayush.homeautomation.Utils;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -11,6 +11,8 @@ import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
+
+import com.ayush.homeautomation.R;
 
 public class AwesomeToggle extends View {
 
