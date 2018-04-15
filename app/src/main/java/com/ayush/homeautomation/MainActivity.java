@@ -177,11 +177,11 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             else {
-                Toast.makeText(getBaseContext(), "Connect to the selected bluetooth device first", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getBaseContext(), "Connect to the selected bluetooth device first", Toast.LENGTH_LONG).show();
             }
         }
         else {
-            Toast.makeText(getBaseContext(), "Connect to the selected bluetooth device first", Toast.LENGTH_LONG).show();
+            //Toast.makeText(getBaseContext(), "Connect to the selected bluetooth device first", Toast.LENGTH_LONG).show();
         }
     }
 
