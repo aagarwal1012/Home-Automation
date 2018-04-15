@@ -29,12 +29,21 @@ public class MainActivity extends AppCompatActivity {
     UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
     TextView nameView;
 
+    AwesomeToggle device1, device2, device3, device4, device_all;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         nameView = (TextView)findViewById(R.id.controllerName);
+
+        device1 = (AwesomeToggle) findViewById(R.id.device1_toggle);
+        device2 = (AwesomeToggle) findViewById(R.id.device2_toggle);        device1 = (AwesomeToggle) findViewById(R.id.device1_toggle);
+        device3 = (AwesomeToggle) findViewById(R.id.device3_toggle);
+        device4 = (AwesomeToggle) findViewById(R.id.device4_toggle);
+        device_all = (AwesomeToggle) findViewById(R.id.device_all_toggle);
+
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (mBluetoothAdapter == null) {
             Toast.makeText(getApplicationContext(),R.string.Bluetooth_NA, Toast.LENGTH_LONG).show();
@@ -43,6 +52,41 @@ public class MainActivity extends AppCompatActivity {
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             startActivity(enableBtIntent);
         }
+
+        device1.setOnCheckedChangeListner(new AwesomeToggle.OnCheckedChangeListner() {
+            @Override
+            public void onChecked(boolean isChecked) {
+                sendSignal(1);
+            }
+        });
+
+        device2.setOnCheckedChangeListner(new AwesomeToggle.OnCheckedChangeListner() {
+            @Override
+            public void onChecked(boolean isChecked) {
+                sendSignal(2);
+            }
+        });
+
+        device3.setOnCheckedChangeListner(new AwesomeToggle.OnCheckedChangeListner() {
+            @Override
+            public void onChecked(boolean isChecked) {
+                sendSignal(3);
+            }
+        });
+
+        device4.setOnCheckedChangeListner(new AwesomeToggle.OnCheckedChangeListner() {
+            @Override
+            public void onChecked(boolean isChecked) {
+                sendSignal(4);
+            }
+        });
+
+        device_all.setOnCheckedChangeListner(new AwesomeToggle.OnCheckedChangeListner() {
+            @Override
+            public void onChecked(boolean isChecked) {
+                sendSignal(0);
+            }
+        });
     }
 
     @Override
@@ -51,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("preferences",MODE_PRIVATE);
         deviceName = preferences.getString("controllerName", "NA");
         deviceAddress = preferences.getString("controllerAddress", "");
-        nameView.setText(deviceName);
+        nameView.setText("Connected to " + "\"" + deviceName + "\"");
         if(!deviceAddress.equals("")) {
             device = mBluetoothAdapter.getRemoteDevice(deviceAddress);
             try {
@@ -104,11 +148,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void sendSignal(View view) {
+    public void sendSignal(int message) {
         if(socket != null){
             if(socket.isConnected()) {
                 try {
-                    os.write(view.getResources().getResourceName(view.getId()).getBytes());
+                    //os.write(view.getResources().getResourceName(view.getId()).getBytes());
+                    os.write(message);
                 } catch (IOException e) {
                     Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                 }

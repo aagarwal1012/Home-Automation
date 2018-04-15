@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Home Automation</string>
+    <string name="app_name">Bluetooth Controller</string>
     <string name="Bluetooth_NA">Bluetooth not available in your device</string>
     <string name="off">Off</string>
     <string name="on">On</string>
