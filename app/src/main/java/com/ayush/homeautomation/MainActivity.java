@@ -119,27 +119,31 @@ public class MainActivity extends AppCompatActivity {
                 socket = device.createInsecureRfcommSocketToServiceRecord(MY_UUID);
             } catch (IOException e) {
                 nameView.setText("Connected to " + "\"" + "NA" + "\"");
-                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
             }
             mBluetoothAdapter.cancelDiscovery();
-            try {
-                socket.connect();
-            } catch (IOException e) {
-                nameView.setText("Connected to " + "\"" + "NA" + "\"");
-                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
-                Log.e(TAG, "socket connect failed: " + e.getMessage() + "\n");
+            if(socket != null){
                 try {
-                    socket.close();
-                } catch (IOException e1) {
-                    Log.e(TAG, "socket closing failed: " + e1.getMessage() + "\n");
-                    Toast.makeText(getApplicationContext(), e1.getMessage(), Toast.LENGTH_LONG).show();
+                    socket.connect();
+                } catch (IOException e) {
+                    nameView.setText("Connected to " + "\"" + "NA" + "\"");
+                    //Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                    Log.e(TAG, "socket connect failed: " + e.getMessage() + "\n");
+                    try {
+                        socket.close();
+                    } catch (IOException e1) {
+                        Log.e(TAG, "socket closing failed: " + e1.getMessage() + "\n");
+                        //Toast.makeText(getApplicationContext(), e1.getMessage(), Toast.LENGTH_LONG).show();
+                    }
                 }
             }
-            try {
-                os = socket.getOutputStream();
-            } catch (IOException e) {
-                Log.e(TAG, "getting output stream failed: " + e.getMessage() + "\n");
-                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+            if (os != null){
+                try {
+                    os = socket.getOutputStream();
+                } catch (IOException e) {
+                    Log.e(TAG, "getting output stream failed: " + e.getMessage() + "\n");
+                    //Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                }
             }
         }
         else {
