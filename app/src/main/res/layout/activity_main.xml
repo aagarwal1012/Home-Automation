@@ -50,7 +50,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/selectBluetoothButton"
         android:layout_marginTop="31dp"
-        android:text="djixjk"
+        android:text=""
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp" />
@@ -72,7 +72,7 @@
     <com.ayush.homeautomation.Utils.AwesomeToggle
         android:id="@+id/device1_toggle"
         android:layout_width="50dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/selectBluetoothButton"
         android:layout_marginEnd="48dp"
@@ -85,7 +85,7 @@
     <com.ayush.homeautomation.Utils.AwesomeToggle
         android:id="@+id/device2_toggle"
         android:layout_width="50dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/device1_toggle"
         android:layout_marginEnd="48dp"
@@ -98,7 +98,7 @@
     <com.ayush.homeautomation.Utils.AwesomeToggle
         android:id="@+id/device3_toggle"
         android:layout_width="50dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/device2_toggle"
         android:layout_marginEnd="48dp"
@@ -111,7 +111,7 @@
     <com.ayush.homeautomation.Utils.AwesomeToggle
         android:id="@+id/device4_toggle"
         android:layout_width="50dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/device3_toggle"
         android:layout_marginEnd="48dp"
@@ -124,7 +124,7 @@
     <com.ayush.homeautomation.Utils.AwesomeToggle
         android:id="@+id/device_all_toggle"
         android:layout_width="50dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/device4_toggle"
         android:layout_marginEnd="48dp"

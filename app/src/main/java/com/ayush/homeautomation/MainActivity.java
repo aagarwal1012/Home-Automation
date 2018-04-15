@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         nameView = (TextView)findViewById(R.id.controllerName);
 
         device1 = (AwesomeToggle) findViewById(R.id.device1_toggle);
-        device2 = (AwesomeToggle) findViewById(R.id.device2_toggle);        device1 = (AwesomeToggle) findViewById(R.id.device1_toggle);
+        device2 = (AwesomeToggle) findViewById(R.id.device2_toggle);
         device3 = (AwesomeToggle) findViewById(R.id.device3_toggle);
         device4 = (AwesomeToggle) findViewById(R.id.device4_toggle);
         device_all = (AwesomeToggle) findViewById(R.id.device_all_toggle);
@@ -118,12 +118,14 @@ public class MainActivity extends AppCompatActivity {
             try {
                 socket = device.createInsecureRfcommSocketToServiceRecord(MY_UUID);
             } catch (IOException e) {
+                nameView.setText("Connected to " + "\"" + "NA" + "\"");
                 Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
             }
             mBluetoothAdapter.cancelDiscovery();
             try {
                 socket.connect();
             } catch (IOException e) {
+                nameView.setText("Connected to " + "\"" + "NA" + "\"");
                 Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                 Log.e(TAG, "socket connect failed: " + e.getMessage() + "\n");
                 try {
@@ -169,7 +171,6 @@ public class MainActivity extends AppCompatActivity {
         if(socket != null){
             if(socket.isConnected()) {
                 try {
-                    //os.write(view.getResources().getResourceName(view.getId()).getBytes());
                     os.write(message);
                 } catch (IOException e) {
                     Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
