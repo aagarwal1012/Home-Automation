@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ayush.homeautomation.Utils.AwesomeToggle;
+import com.suke.widget.SwitchButton;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
     TextView nameView;
 
-    AwesomeToggle device1, device2, device3, device4, device_all;
+    SwitchButton device1, device2, device3, device4, device_all;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +41,11 @@ public class MainActivity extends AppCompatActivity {
 
         nameView = (TextView)findViewById(R.id.controllerName);
 
-        device1 = (AwesomeToggle) findViewById(R.id.device1_toggle);
-        device2 = (AwesomeToggle) findViewById(R.id.device2_toggle);
-        device3 = (AwesomeToggle) findViewById(R.id.device3_toggle);
-        device4 = (AwesomeToggle) findViewById(R.id.device4_toggle);
-        device_all = (AwesomeToggle) findViewById(R.id.device_all_toggle);
+        device1 = (SwitchButton) findViewById(R.id.device1_toggle);
+        device2 = (SwitchButton) findViewById(R.id.device2_toggle);
+        device3 = (SwitchButton) findViewById(R.id.device3_toggle);
+        device4 = (SwitchButton) findViewById(R.id.device4_toggle);
+        device_all = (SwitchButton) findViewById(R.id.device_all_toggle);
 
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (mBluetoothAdapter == null) {
@@ -55,62 +56,71 @@ public class MainActivity extends AppCompatActivity {
             startActivity(enableBtIntent);
         }
 
-        device1.setOnCheckedChangeListner(new AwesomeToggle.OnCheckedChangeListner() {
+        device1.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
             @Override
-            public void onChecked(boolean isChecked) {
-                if (isChecked)
+            public void onCheckedChanged(SwitchButton view, boolean isChecked) {
+                if (isChecked) {
                     sendSignal(1);
-                else
+                }
+                else {
+                    device_all.setChecked(false);
                     sendSignal(5);
+                }
             }
         });
 
-        device2.setOnCheckedChangeListner(new AwesomeToggle.OnCheckedChangeListner() {
+        device2.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
             @Override
-            public void onChecked(boolean isChecked) {
+            public void onCheckedChanged(SwitchButton view, boolean isChecked) {
                 if (isChecked)
                     sendSignal(2);
                 else
+                {
                     sendSignal(6);
+                }
             }
         });
 
-        device3.setOnCheckedChangeListner(new AwesomeToggle.OnCheckedChangeListner() {
+        device3.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
             @Override
-            public void onChecked(boolean isChecked) {
+            public void onCheckedChanged(SwitchButton view, boolean isChecked) {
                 if (isChecked)
                     sendSignal(3);
                 else
+                {
                     sendSignal(7);
+                }
             }
         });
 
-        device4.setOnCheckedChangeListner(new AwesomeToggle.OnCheckedChangeListner() {
+        device4.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
             @Override
-            public void onChecked(boolean isChecked) {
+            public void onCheckedChanged(SwitchButton view, boolean isChecked) {
                 if (isChecked)
                     sendSignal(4);
                 else
+                {
                     sendSignal(8);
+                }
             }
         });
 
-        device_all.setOnCheckedChangeListner(new AwesomeToggle.OnCheckedChangeListner() {
+        device_all.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
             @Override
-            public void onChecked(boolean isChecked) {
+            public void onCheckedChanged(SwitchButton view, boolean isChecked) {
                 if (isChecked) {
-                    sendSignal(0);
-                    device1.isChecked(true);
-                    device2.isChecked(true);
-                    device3.isChecked(true);
-                    device4.isChecked(true);
+                    //sendSignal(0);
+                    device1.setChecked(true);
+                    device2.setChecked(true);
+                    device3.setChecked(true);
+                    device4.setChecked(true);
                 }
                 else {
-                    sendSignal(10);
-                    device1.isChecked(false);
-                    device2.isChecked(false);
-                    device3.isChecked(false);
-                    device4.isChecked(false);
+                    //sendSignal(10);
+                    device1.setChecked(false);
+                    device2.setChecked(false);
+                    device3.setChecked(false);
+                    device4.setChecked(false);
                 }
             }
         });

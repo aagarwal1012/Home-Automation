@@ -70,70 +70,51 @@
         android:textAlignment="center"
         android:textSize="20sp" />
 
-    <com.ayush.homeautomation.Utils.AwesomeToggle
+    <com.suke.widget.SwitchButton
         android:id="@+id/device1_toggle"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/selectBluetoothButton"
         android:layout_marginEnd="48dp"
         android:layout_marginTop="91dp"
-        app:active_background_color="@color/colorAccent"
-        app:font_color="#FFFFFF"
-        app:inactive_background_color="@color/colorPrimary"
-        app:inner_toggle_color="#FFFFFF" />
+        />
 
-    <com.ayush.homeautomation.Utils.AwesomeToggle
+    <com.suke.widget.SwitchButton
         android:id="@+id/device2_toggle"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/device1_toggle"
         android:layout_marginEnd="48dp"
-        android:layout_marginTop="20dp"
-        app:active_background_color="@color/colorAccent"
-        app:font_color="#FFFFFF"
-        app:inactive_background_color="@color/colorPrimary"
-        app:inner_toggle_color="#FFFFFF" />
+        android:layout_marginTop="30dp"/>
 
-    <com.ayush.homeautomation.Utils.AwesomeToggle
+    <com.suke.widget.SwitchButton
         android:id="@+id/device3_toggle"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/device2_toggle"
         android:layout_marginEnd="48dp"
-        android:layout_marginTop="20dp"
-        app:active_background_color="@color/colorAccent"
-        app:font_color="#FFFFFF"
-        app:inactive_background_color="@color/colorPrimary"
-        app:inner_toggle_color="#FFFFFF" />
+        android:layout_marginTop="30dp" />
 
-    <com.ayush.homeautomation.Utils.AwesomeToggle
+    <com.suke.widget.SwitchButton
         android:id="@+id/device4_toggle"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/device3_toggle"
         android:layout_marginEnd="48dp"
-        android:layout_marginTop="20dp"
-        app:active_background_color="@color/colorAccent"
-        app:font_color="#FFFFFF"
-        app:inactive_background_color="@color/colorPrimary"
-        app:inner_toggle_color="#FFFFFF" />
+        android:layout_marginTop="30dp" />
 
-    <com.ayush.homeautomation.Utils.AwesomeToggle
+    <com.suke.widget.SwitchButton
         android:id="@+id/device_all_toggle"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/device4_toggle"
         android:layout_marginEnd="48dp"
-        android:layout_marginTop="20dp"
-        app:active_background_color="@color/colorAccent"
-        app:font_color="#FFFFFF"
-        app:inactive_background_color="@color/colorPrimary"
-        app:inner_toggle_color="#FFFFFF" />
+        android:layout_marginTop="30dp" />
 
     <TextView
         android:id="@+id/textView"
