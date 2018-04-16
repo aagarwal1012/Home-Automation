@@ -63,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
                     sendSignal(1);
                 }
                 else {
-                    device_all.setChecked(false);
                     sendSignal(5);
                 }
             }
