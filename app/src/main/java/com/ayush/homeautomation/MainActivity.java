@@ -98,10 +98,20 @@ public class MainActivity extends AppCompatActivity {
         device_all.setOnCheckedChangeListner(new AwesomeToggle.OnCheckedChangeListner() {
             @Override
             public void onChecked(boolean isChecked) {
-                if (isChecked)
+                if (isChecked) {
                     sendSignal(0);
-                else
+                    device1.isChecked(true);
+                    device2.isChecked(true);
+                    device3.isChecked(true);
+                    device4.isChecked(true);
+                }
+                else {
                     sendSignal(10);
+                    device1.isChecked(false);
+                    device2.isChecked(false);
+                    device3.isChecked(false);
+                    device4.isChecked(false);
+                }
             }
         });
     }
@@ -137,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
-            if (os != null){
+            if (socket != null){
                 try {
                     os = socket.getOutputStream();
                 } catch (IOException e) {
@@ -175,7 +185,10 @@ public class MainActivity extends AppCompatActivity {
         if(socket != null){
             if(socket.isConnected()) {
                 try {
-                    os.write(message);
+                    if (os != null){
+                        os.write(message);
+                        Log.d("OS Message : ", "" + message);
+                    }
                 } catch (IOException e) {
                     Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                 }
