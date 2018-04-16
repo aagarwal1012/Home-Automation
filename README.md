@@ -4,6 +4,7 @@ The main objective of this project is to develop a home automation system using 
 
 In order to achieve this, a Bluetooth module is interfaced to the Arduino board at the receiver end while on the transmitter end, a GUI application on the cell phone sends ON/OFF commands to the receiver where loads are connected. By touching the specified location on the GUI, the loads can be turned ON/OFF remotely through this technology.
 
+
 Contents
 --------
 This Readme is divided into several parts
@@ -125,7 +126,10 @@ Future Develpment
 
 - Arduino based device control using Bluetooth on Smartphone project can be enhanced to control the speed of the fan or volume of the buzzer etc.
 - Home automation and Device controlling can be done using Internet of Things – IOT technology.
-- We can replace Bluetooth by GSM modem so that we can achieve device controlling by sending SMS using GSM modem.
+- We can replace Bluetooth by GSM modem so that we can achieve device controlling by sending SMS using GSM modem.  
+
+
+Any suggestion are welcomed and feel free to open an <a href = "https://github.com/aagarwal1012/Home-Automation/issues">issue</a>.  
 
 License
 --------
