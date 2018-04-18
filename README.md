@@ -4,6 +4,9 @@ The main objective of this project is to develop a home automation system using 
 
 In order to achieve this, a Bluetooth module is interfaced to the Arduino board at the receiver end while on the transmitter end, a GUI application on the cell phone sends ON/OFF commands to the receiver where loads are connected. By touching the specified location on the GUI, the loads can be turned ON/OFF remotely through this technology.
 
+Demonstration of the project is in the below youtube video :  
+
+<a href = "https://www.youtube.com/watch?v=1ieyT6df8ec" ><img src="https://github.com/aagarwal1012/Home-Automation/blob/master/Images/youtube_image.png" width="50%" /></a>  
 
 Contents
 --------
@@ -21,7 +24,7 @@ Similarly, when the user presses on the ‘On’ button displayed on the app for
 This project of home automation using Bluetooth and Arduino can be used for controlling any AC or DC devices.  
 Given below is the flow diagram that explains the flow of the project.
 
-<img src = "https://github.com/aagarwal1012/Home-Automation/blob/master/Images/diagram.jpg">  
+<img src = "https://github.com/aagarwal1012/Home-Automation/blob/master/Images/diagram.jpg" width = "75%"/>  
 
 
 <a name="components">Components</a>
@@ -50,75 +53,79 @@ The list of components mentioned here are specifically for controlling 4 differe
 ---------
 ### Circuit Diagram  
 
-<img src = "https://github.com/aagarwal1012/Home-Automation/blob/master/Images/circuit_diagram.png" >  
+<img src = "https://github.com/aagarwal1012/Home-Automation/blob/master/Images/ciruit_diagram.png" width = "75%"/>  
 
 ### Arduino Code 
 
 ```
-
 //using ports 10, 11, 12, 13
 int relay1=10;
 int relay2=11;
 int relay3=12;
 int relay4=13;
-char val;
+int val;
+
 void setup() {
-pinMode(relay1,OUTPUT);
-pinMode(relay2,OUTPUT);
-pinMode(relay3,OUTPUT);
-pinMode(relay4,OUTPUT);
-digitalWrite(relay1,HIGH);
-digitalWrite(relay2,HIGH);
-digitalWrite(relay3,HIGH);
-digitalWrite(relay4,HIGH);
-Serial.begin(9600);
+ 
+  Serial.begin(9600);
+  pinMode(relay1,OUTPUT);
+  pinMode(relay2,OUTPUT);
+  pinMode(relay3,OUTPUT);
+  pinMode(relay4,OUTPUT);
+  digitalWrite(relay1,HIGH);
+  digitalWrite(relay2,HIGH);
+  digitalWrite(relay3,HIGH);
+  digitalWrite(relay4,HIGH);
+
 }
 void loop() {
-//check data serial from bluetooth android App
-while (Serial.available() > 0){
-val = Serial.read();
-Serial.println(val);
+ 
+  //check data serial from bluetooth android App
+  while (Serial.available() > 0){
+    val = Serial.read();
+    Serial.println(val);
+  }
+ 
+  //Relay is on
+  if( val == 1 ) {
+    digitalWrite(relay1,HIGH); }
+  else if( val == 2 ) {
+    digitalWrite(relay2,HIGH); }  else if( val == 3 ) {
+    digitalWrite(relay3,HIGH); }
+  else if( val == 4 ) {
+    digitalWrite(relay4,HIGH); }
+    
+  //relay all on
+  else if( val == 0 ) {
+    digitalWrite(relay1,HIGH);
+    digitalWrite(relay2,HIGH);
+    digitalWrite(relay3,HIGH);
+    digitalWrite(relay4,HIGH);
+  }
+  //relay is off
+  else if( val == 5 ) {
+    digitalWrite(relay1,LOW); }
+  else if( val == 6 ) {
+    digitalWrite(relay2,LOW); }
+  else if( val == 7 ) {
+    digitalWrite(relay3,LOW); }
+  else if( val == 8 ) {
+    digitalWrite(relay4,LOW); }
+    
+  //relay all off
+  else if( val == 10 ) {
+    digitalWrite(relay1,LOW);
+    digitalWrite(relay2,LOW);
+    digitalWrite(relay3,LOW);
+    digitalWrite(relay4,LOW);
+  }
 }
-//Relay is on
-if( val == '1' ) {
-digitalWrite(relay1,HIGH); }
-else if( val == '2' ) {
-digitalWrite(relay2,HIGH); }
-else if( val == '3' ) {
-digitalWrite(relay3,HIGH); }
-else if( val == '4' ) {
-digitalWrite(relay4,HIGH); }
-//relay all on
-else if( val == '0' ) {
-digitalWrite(relay1,HIGH);
-digitalWrite(relay2,HIGH);
-digitalWrite(relay3,HIGH);
-digitalWrite(relay4,HIGH);
-}
-//relay is off
-else if( val == '5' ) {
-digitalWrite(relay1,LOW); }
-else if( val == '6' ) {
-digitalWrite(relay2,LOW); }
-else if( val == '7' ) {
-digitalWrite(relay3,LOW); }
-else if( val == '8' ) {
-digitalWrite(relay4,LOW); }
-//relay all off
-else if( val == '10' ) {
-digitalWrite(relay1,LOW);
-digitalWrite(relay2,LOW);
-digitalWrite(relay3,LOW);
-digitalWrite(relay4,LOW);
-}
-}
-
 ```
 
 
 ### Android App  
 
-<img src = "https://github.com/aagarwal1012/Home-Automation/blob/master/Images/app_screenshot.png" width = "300">
+<img src = "https://github.com/aagarwal1012/Home-Automation/blob/master/Images/app_screenshot.png" width = "300"/>
 
 
 Future Develpment
